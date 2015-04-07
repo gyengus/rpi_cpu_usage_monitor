@@ -1,0 +1,27 @@
+{
+  "name": "rpi_cpu_usage_monitor",
+  "version": "0.0.1",
+  "description": "Show Raspberry Pi CPU usage with RGB LED",
+  "main": "app.js",
+  "scripts": {
+	"start": "app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": "app.js",
+  "keywords": [
+    "raspberry pi",
+    "cpu meter",
+	"RGB LED"
+  ],
+  "author": {
+	"name": "Gabor Gyenge",
+	"email": "gyengus@gmail.com",
+	"url": "http://gyengus.hu"
+  },
+  "homepage": http://gyengus.hu/",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^0.9.0",
+    "rpi-gpio": "^0.5.1"
+  }
+}
