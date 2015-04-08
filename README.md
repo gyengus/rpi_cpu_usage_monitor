@@ -6,7 +6,7 @@ Shows the Rapsberry Pi CPU usage on RGB LED
 
 ## Install
 ```bash
-$ npm install rpi_cpu_usage_monitor
+$ npm install -g rpi_cpu_usage_monitor
 ```
 
 ## Usage
@@ -14,12 +14,16 @@ $ npm install rpi_cpu_usage_monitor
 $ rpi_cpu_usage_monitor [command] [-q]
 ```
 Option:
-  -q: quiet mode
+<ul>
+<li>-q: quiet mode, only errors will be print</li>
+</ul>
 Commands:
-  --test: Test mode, sequentially power on LEDs, and exit
-  --on: Power on all LEDs, and exit.
-  --off: Power off all LEDs, and exit.
-  -v: Print version, and exit.
+<ul>
+<li>--test: Test mode, sequentially power on LEDs, and exit</li>
+<li>--on: Power on all LEDs, and exit.</li>
+<li>--off: Power off all LEDs, and exit.</li>
+<li>-v: Print version, and exit.</li>
+</ul>
 If no command, show the cpu usage on the RGB LED.
 
 Please note: You must run this in root account.
