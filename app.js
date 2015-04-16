@@ -152,18 +152,13 @@ try {
 			});
 		});
 	} else if (param == '-v') {
-		var fs = require('fs');
-		fs.readFile(__dirname + '/package.json', 'utf8', function(err, data) {
-			if (err) console.log(err);
-			var package_data = JSON.parse(data);
-			console.log(package_data.version);
-			process.exit();
-		});
+		console.log(require(__dirname + '/package.json').version);
+		process.exit();
 	} else if (param == '-h') {
 		// Show help
 		console.log('Usage: rpi_cpu_usage_monitor [command] [-q]');
 		console.log('Option:');
-		console.log('  -q: quiet mode');
+		console.log('  -q: quiet mode, only errors will be print');
 		console.log('');
 		console.log('Commands:');
 		console.log('  --test: Test mode, sequentially power on LEDs, and exit');
@@ -174,7 +169,9 @@ try {
 		console.log('');
 		console.log(' -v: Print version, and exit.');
 		console.log('');
-		console.log('If no command, show the cpu usage on the RGB LED.');
+		console.log('If no or unknown command, show the cpu usage on the RGB LED.');
+		console.log('');
+		console.log('Please note: You must run this in root account.');
 		process.exit();		
 	} else {
 		init(indicator);
