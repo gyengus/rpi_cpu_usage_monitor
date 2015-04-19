@@ -27,7 +27,7 @@ function mylog(str) {
 function get_cpu_usage(callback) {
 	child = exec("sar -u 2 -t 1 | tail -n 1 | awk '{print 100 - $8}'", function(error, stdout, stderr) {
 		percent = stdout.replace(/\n$/, '');
-		mylog('CPU usage: ' + percent + ' %');
+		mylog('CPU usage: ' + percent + '%');
 		if (stderr) mylog("stderr: " + stderr);
 		if (error !== null) {
 			mylog('Error: ' + error);
@@ -116,6 +116,17 @@ function init(cb) {
 		}
 	);
 } // init
+
+['SIGHUP', 'SIGINT', 'SIGQUIT', 'SIGILL', 'SIGTRAP', 'SIGABRT',
+	'SIGBUS', 'SIGFPE', 'SIGUSR1', 'SIGSEGV', 'SIGUSR2', 'SIGTERM'
+	].forEach(function(element, index, array) {
+		process.on(element, function() {
+			setleds(false, false, false, function() {
+				mylog('Bye');
+				process.exit();
+			});
+		});
+	});
 
 try {
 	var param = process.argv[2];
