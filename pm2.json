@@ -1,0 +1,9 @@
+{
+	"apps" : [{
+		"name"        : "rpi_cpu_usage_monitor",
+		"script"      : "app.js",
+		"args"		  : ["-q"],
+		"cwd"         : "/usr/lib/node_modules/rpi_cpu_usage_monitor",
+		"exec_mode"   : "fork_mode"
+	}]
+}

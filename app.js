@@ -1,15 +1,18 @@
 #!/usr/bin/env node
 
 // --- Settings ---
-var RED = 33; // RED
-var GREEN = 31; // GREEN
-var BLUE = 32; // BLUE
+var CONFIG = require('./config.json');
+var RED = CONFIG.red_pin; // RED
+var GREEN = CONFIG.green_pin; // GREEN
+var BLUE = CONFIG.blue_pin; // BLUE
 // ----------------
 
-var async = require("async");
+var async = require('async');
 var gpio = require('rpi-gpio');
 var exec = require('child_process').exec,
 	child;
+
+var quiet_mode = in_array('-q', process.argv);
 
 function in_array(needle, haystack) {
     var length = haystack.length;
@@ -20,19 +23,20 @@ function in_array(needle, haystack) {
 } // in_array
 
 function mylog(str) {
-	if (in_array('-q', process.argv)) return;
+	if (quiet_mode) return;
 	console.log(str);
 } // mylog
 
 function get_cpu_usage(callback) {
 	child = exec("sar -u 2 -t 1 | tail -n 1 | awk '{print 100 - $8}'", function(error, stdout, stderr) {
-		percent = stdout.replace(/\n$/, '');
-		mylog('CPU usage: ' + percent + '%');
-		if (stderr) mylog("stderr: " + stderr);
 		if (error !== null) {
 			mylog('Error: ' + error);
+			if (stderr) mylog("stderr: " + stderr);
+		} else {
+			var percent = stdout.replace(/\n$/, '');
+			mylog('CPU usage: ' + percent + '%');
+			if (callback) callback(percent);
 		}
-		if (callback) callback(percent);
 	});
 } // get_cpu_usage
 
@@ -93,22 +97,23 @@ function indicator() {
 } // indicator
 
 function init(cb) {
-	async.series([
-		function(callback) {
-			gpio.setup(RED, gpio.DIR_OUT, function() {
-				callback();
-			});
-		},
-		function(callback) {
-			gpio.setup(GREEN, gpio.DIR_OUT, function() {
-				callback();
-			});
-		},
-		function(callback) {
-			gpio.setup(BLUE, gpio.DIR_OUT, function() {
-				callback();
-			});
-		}
+	async.series(
+		[
+			function(callback) {
+				gpio.setup(RED, gpio.DIR_OUT, function() {
+					callback();
+				});
+			},
+			function(callback) {
+				gpio.setup(GREEN, gpio.DIR_OUT, function() {
+					callback();
+				});
+			},
+			function(callback) {
+				gpio.setup(BLUE, gpio.DIR_OUT, function() {
+					callback();
+				});
+			}
 		],
 		function() {
 			mylog("Init ok");
