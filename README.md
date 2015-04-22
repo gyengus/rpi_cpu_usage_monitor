@@ -2,11 +2,11 @@
 
 [![NPM version](https://img.shields.io/npm/v/rpi_cpu_usage_monitor.svg)](http://npmjs.com/package/rpi_cpu_usage_monitor) [![Downloads](http://img.shields.io/npm/dm/rpi_cpu_usage_monitor.svg)](http://npmjs.com/package/rpi_cpu_usage_monitor) [![Support us](http://img.shields.io/gittip/gyengus.svg)](https://www.gittip.com/gyengus/)
 
-Shows the Rapsberry Pi CPU usage on RGB LED
+Shows the Rapsberry Pi CPU usage on RGB LED<br />
 Colors:
-	0 - 50% green
-	51 - 90% yellow
-	91 - 100% red
+* 0 - 50% green
+* 51 - 90% yellow
+* 91 - 100% red
 			
 ## Requirements
 sysstat packages, to install type
