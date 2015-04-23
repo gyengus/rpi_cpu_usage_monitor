@@ -1,4 +1,4 @@
-//#!/usr/bin/env node
+#!/usr/bin/env node
 
 // --- Settings ---
 var CONFIG = require('./config.json');
