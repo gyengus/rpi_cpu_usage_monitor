@@ -1,6 +1,6 @@
 {
 	"name": "rpi_cpu_usage_monitor",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Show Raspberry Pi CPU usage with RGB LED",
 	"main": "app.js",
 	"scripts": {
@@ -18,7 +18,11 @@
 		"email": "gyengus@gmail.com",
 		"url": "http://gyengus.hu"
 	},
-	"homepage": "http://gyengus.hu/cikk linkje...",
+	"homepage": "http://gyengus.hu/2015/04/raspberry-pi-cpu-hasznalat-jelzo/",
+	"repository": {
+		"type": "git",
+		"url": "git@github.com:gyengus/rpi_cpu_usage_monitor.git"
+	},
 	"license": "ISC",
 	"dependencies": {
 		"async": "^0.9.0",

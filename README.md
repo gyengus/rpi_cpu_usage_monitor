@@ -40,3 +40,5 @@ Commands:
 If no command, show the cpu usage on the RGB LED.
 
 Please note: You must run this in root account.
+
+For more information <a href="http://gyengus.hu/2015/04/raspberry-pi-cpu-hasznalat-jelzo/">click here</a>.
