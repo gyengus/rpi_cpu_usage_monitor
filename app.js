@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+//#!/usr/bin/env node
 
 // --- Settings ---
 var CONFIG = require('./config.json');
@@ -97,7 +97,7 @@ function indicator() {
 } // indicator
 
 function init(cb) {
-	async.series(
+	async.parallel(
 		[
 			function(callback) {
 				gpio.setup(RED, gpio.DIR_OUT, function() {
@@ -184,6 +184,8 @@ try {
 		console.log(' --off: Power off all LEDs, and exit.');
 		console.log('');
 		console.log(' -v: Print version, and exit.');
+		console.log('');
+		console.log(' -v: Print this help.');
 		console.log('');
 		console.log('If no or unknown command, show the cpu usage on the RGB LED.');
 		console.log('');

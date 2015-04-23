@@ -23,7 +23,7 @@ $ npm install -g rpi_cpu_usage_monitor
 
 ## Usage
 ```bash
-$ rpi_cpu_usage_monitor [command] [-q]
+$ sudo rpi_cpu_usage_monitor [command] [-q]
 ```
 Option:
 <ul>
@@ -35,6 +35,7 @@ Commands:
 <li>--on: Power on all LEDs, and exit.</li>
 <li>--off: Power off all LEDs, and exit.</li>
 <li>-v: Print version, and exit.</li>
+<li>-h: Print help.</li>
 </ul>
 If no command, show the cpu usage on the RGB LED.
 
