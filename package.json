@@ -1,6 +1,6 @@
 {
 	"name": "rpi_cpu_usage_monitor",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"description": "Show Raspberry Pi CPU usage with RGB LED",
 	"main": "app.js",
 	"scripts": {

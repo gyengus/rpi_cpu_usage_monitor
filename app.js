@@ -133,68 +133,63 @@ function init(cb) {
 		});
 	});
 
-try {
-	var param = process.argv[2];
-	if (param == '--test') {
-		init(function() {
-			setleds(true, false, false, function() {
-				setTimeout(function() {
-					setleds(false, true, false, function() {
-						setTimeout(function() {
-							setleds(false, false, true, function() {
-								setTimeout(function() {
-									setleds(false, false, false, function() {
-										process.exit();
-									});
-								}, 2000);
-							});
-						}, 2000);
-					});
-				}, 2000);
-			});
+var param = process.argv[2];
+if (param == '--test') {
+	init(function() {
+		setleds(true, false, false, function() {
+			setTimeout(function() {
+				setleds(false, true, false, function() {
+					setTimeout(function() {
+						setleds(false, false, true, function() {
+							setTimeout(function() {
+								setleds(false, false, false, function() {
+									process.exit();
+								});
+							}, 2000);
+						});
+					}, 2000);
+				});
+			}, 2000);
 		});
-	} else if (param == '--on') {
-		init(function() {
-			setleds(true, true, true, function() {
-				mylog('LEDs on, bye');
-				process.exit();
-			});
+	});
+} else if (param == '--on') {
+	init(function() {
+		setleds(true, true, true, function() {
+			mylog('LEDs on, bye');
+			process.exit();
 		});
-	} else if (param == '--off') {
-		init(function() {
-			setleds(false, false, false, function() {
-				mylog('LEDs off, bye');
-				process.exit();
-			});
+	});
+} else if (param == '--off') {
+	init(function() {
+		setleds(false, false, false, function() {
+			mylog('LEDs off, bye');
+			process.exit();
 		});
-	} else if (param == '-v') {
-		console.log(require(__dirname + '/package.json').version);
-		process.exit();
-	} else if (param == '-h') {
-		// Show help
-		console.log('Usage: rpi_cpu_usage_monitor [command] [-q]');
-		console.log('Option:');
-		console.log('  -q: quiet mode, only errors will be print');
-		console.log('');
-		console.log('Commands:');
-		console.log('  --test: Test mode, sequentially power on LEDs, and exit');
-		console.log('');
-		console.log(' --on: Power on all LEDs, and exit.');
-		console.log('');
-		console.log(' --off: Power off all LEDs, and exit.');
-		console.log('');
-		console.log(' -v: Print version, and exit.');
-		console.log('');
-		console.log(' -v: Print this help.');
-		console.log('');
-		console.log('If no or unknown command, show the cpu usage on the RGB LED.');
-		console.log('');
-		console.log('Please note: You must run this in root account.');
-		process.exit();		
-	} else {
-		init(indicator);
-	}
-} catch(err) {
-	console.log(err.message);
-	console.log(err);
+	});
+} else if (param == '-v') {
+	console.log(require(__dirname + '/package.json').version);
+	process.exit();
+} else if (param == '-h') {
+	// Show help
+	console.log('Usage: rpi_cpu_usage_monitor [command] [-q]');
+	console.log('Option:');
+	console.log('  -q: quiet mode, only errors will be print');
+	console.log('');
+	console.log('Commands:');
+	console.log('  --test: Test mode, sequentially power on LEDs, and exit');
+	console.log('');
+	console.log(' --on: Power on all LEDs, and exit.');
+	console.log('');
+	console.log(' --off: Power off all LEDs, and exit.');
+	console.log('');
+	console.log(' -v: Print version, and exit.');
+	console.log('');
+	console.log(' -v: Print this help.');
+	console.log('');
+	console.log('If no or unknown command, show the cpu usage on the RGB LED.');
+	console.log('');
+	console.log('Please note: You must run this in root account.');
+	process.exit();
+} else {
+	init(indicator);
 }
