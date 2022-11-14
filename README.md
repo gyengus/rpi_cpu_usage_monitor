@@ -1,13 +1,14 @@
 # Raspberry Pi CPU usage monitor
 
-[![NPM version](https://img.shields.io/npm/v/rpi_cpu_usage_monitor.svg)](http://npmjs.com/package/rpi_cpu_usage_monitor) [![Downloads](http://img.shields.io/npm/dm/rpi_cpu_usage_monitor.svg)](http://npmjs.com/package/rpi_cpu_usage_monitor) [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=K5PAV5V7WGWFL)
+[![NPM version](https://img.shields.io/npm/v/rpi_cpu_usage_monitor.svg)](http://npmjs.com/package/rpi_cpu_usage_monitor) 
+[![Downloads](http://img.shields.io/npm/dm/rpi_cpu_usage_monitor.svg)](http://npmjs.com/package/rpi_cpu_usage_monitor)
 
 Shows the Raspberry Pi CPU usage on RGB LED<br />
 Colors:
 * 0 - 50% green
 * 51 - 90% yellow
 * 91 - 100% red
-			
+
 ## Requirements
 sysstat packages, to install type
 ```bach
@@ -43,9 +44,9 @@ Please note: You must run this in root account.
 
 For more information <a href="https://gyengus.hu/2015/04/raspberry-pi-cpu-hasznalat-jelzo/">click here</a>.
 
-## Donations
-- PayPal: https://paypal.me/gyengus
-- Bitcoin: 1QJzLBK9uQP4RthmKJRQwy3v5sd4XS4S7P
-- Bitcoin Cash: qp04tazu4fe7lv6zr99suu40swqqp747nsm0kcfckv
-- Ethereum: 0x2bD68120A56acBf6Dbd11da2060228b8912C1e3C
-
+## Tips
+- Bitcoin: bc1qx4q5epl7nsyu9mum8edrvp2my8tut0enrz7kcn
+- EVM compatible (Ethereum, Fantom, Polygon, etc.): 0x9F0a70A7306DF3fc072446cAF540F6766a4CC4E8
+- Litecoin: ltc1qk2gf43u3lw6vzhvah03wns0nkgetg2c7ea0w5r
+- Solana: 14SHwk3jTNYdMkEvpbq1j7Eu9iUJ3GySnaBF4kqBR8Ah
+- Flux: t1T3x4HExm4nWD7gN68px9zCF3ZFQyneFSK
